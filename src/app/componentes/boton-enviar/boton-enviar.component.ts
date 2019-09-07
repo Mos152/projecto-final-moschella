@@ -13,12 +13,10 @@ export class BotonEnviarComponent implements OnInit {
 
     //this.socket.emit=    
 
-
-
-
    }
 
   ngOnInit() {
   }
+
 
 }

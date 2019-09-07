@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyOwnCustomMaterialModule } from './material';
 import { BarraTextoComponent } from './componentes/barra-texto/barra-texto.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { BarraTextoComponent } from './componentes/barra-texto/barra-texto.compo
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MyOwnCustomMaterialModule
+    MyOwnCustomMaterialModule,
+    ReactiveFormsModule
     //WebsocketService
   ],
   providers: [],
