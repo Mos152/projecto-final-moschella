@@ -4,9 +4,11 @@ var app = require ('express')();
 
 io.on('connection', function(socket){
     console.log('acaba de entrar a la aplicacion');
-    socket.emit('test event','here is some data');
-    socket.on('mensajito',function(mensaje){
+ //   socket.emit('test event','here is some data');
+   
+ socket.on('mensajito',function(mensaje){
         console.log(mensaje);
+        socket.emit('respuesta',mensaje);
     });
     
 });

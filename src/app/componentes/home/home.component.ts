@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators} from '@angular/forms';
 import { WebsocketService } from 'src/app/websocket.service';
-
+//import { $ } from 'protractor';
+//declare var JQuery:any
+declare var $: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -21,9 +23,16 @@ export class HomeComponent implements OnInit {
     this.FormularioChat = this.formBuilder.group({
       MensajePrueba: ['',Validators.required ],
     });
+
+    $(document).ready(() => {
+      this.SocketService.on('respuesta',function (msg){
+        $('#message').append($('<li>').text(msg));
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+     });
   }
 
-  
+   
   onSubmit(){
     this.mensaje = (<HTMLInputElement>document.getElementById("MensajeID")).value
    // console.log(this.mensaje);
@@ -33,7 +42,6 @@ export class HomeComponent implements OnInit {
      // $('#messages').append($('<li>').text(msg));
      // window.scrollTo(0, document.body.scrollHeight);
     //});
-
   }
     
 
