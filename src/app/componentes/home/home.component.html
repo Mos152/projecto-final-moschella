@@ -14,13 +14,15 @@
         </style>
     </head>
     <body>
+        
         <ul id="messages"></ul>
-    <form [formGroup]="FormularioChat" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <input type="text" formControlName="MensajePrueba" class="form-control" id="MensajeID" />
-        </div>
-        <button type="submit">enviar</button>
-    </form>
+
+            <form [formGroup]="FormularioChat" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                <input type="text" formControlName="MensajePrueba" class="form-control" id="MensajeID" />
+                </div>
+                <button type="submit">enviar</button>
+            </form>
     </body>
  
     

@@ -13,31 +13,36 @@ export class HomeComponent implements OnInit {
 
   FormularioChat:FormGroup ;
 
-  mensaje = '';
+//  mensaje = '';
   constructor(
     private formBuilder: FormBuilder,
     private SocketService: WebsocketService,
   ) { }
 
   ngOnInit() {
+   
     this.FormularioChat = this.formBuilder.group({
       MensajePrueba: ['',Validators.required ],
     });
 
     $(document).ready(() => {
       this.SocketService.on('respuesta',function (msg){
+        console.log(msg);
         $('#message').append($('<li>').text(msg));
-        window.scrollTo(0, document.body.scrollHeight);
+        //window.scrollTo(0, document.body.scrollHeight);
       });
      });
   }
 
-   
-  onSubmit(){
-    this.mensaje = (<HTMLInputElement>document.getElementById("MensajeID")).value
-   // console.log(this.mensaje);
+  get f() { return this.FormularioChat.controls }
 
-    this.SocketService.emit('mensajito',this.mensaje);
+  onSubmit(){
+    //this.mensaje = (<HTMLInputElement>document.getElementById("MensajeID")).value
+
+   // console.log(this.mensaje);
+   var mensaje = this.f.MensajePrueba.value;
+
+    this.SocketService.emit('mensajito',mensaje);
     //this.SocketService.on('mensajito', function(msg){
      // $('#messages').append($('<li>').text(msg));
      // window.scrollTo(0, document.body.scrollHeight);
