@@ -26,28 +26,17 @@ export class HomeComponent implements OnInit {
     });
 
     $(document).ready(() => {
-      this.SocketService.on('respuesta',function (msg){
+      this.SocketService.on('mensajito',function (msg){
         console.log(msg);
-        $('#message').append($('<li>').text(msg));
-        //window.scrollTo(0, document.body.scrollHeight);
+        $('#messages').append($('<li>').text(msg));
+        window.scrollTo(0, document.body.scrollHeight);
       });
      });
   }
-
   get f() { return this.FormularioChat.controls }
 
   onSubmit(){
-    //this.mensaje = (<HTMLInputElement>document.getElementById("MensajeID")).value
-
-   // console.log(this.mensaje);
    var mensaje = this.f.MensajePrueba.value;
-
     this.SocketService.emit('mensajito',mensaje);
-    //this.SocketService.on('mensajito', function(msg){
-     // $('#messages').append($('<li>').text(msg));
-     // window.scrollTo(0, document.body.scrollHeight);
-    //});
   }
-    
-
 }

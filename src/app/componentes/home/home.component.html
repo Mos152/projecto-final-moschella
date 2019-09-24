@@ -19,7 +19,7 @@
 
             <form [formGroup]="FormularioChat" (ngSubmit)="onSubmit()">
                 <div class="form-group">
-                <input type="text" formControlName="MensajePrueba" class="form-control" id="MensajeID" />
+                <input type="text" formControlName="MensajePrueba" class="form-control" id="MensajeID" autocomplete="off" />
                 </div>
                 <button type="submit">enviar</button>
             </form>
