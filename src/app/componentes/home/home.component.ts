@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators} from '@angular/forms';
 import { WebsocketService } from 'src/app/websocket.service';
+
 //import { $ } from 'protractor';
 //declare var JQuery:any
 declare var $: any;
@@ -28,7 +29,7 @@ export class HomeComponent implements OnInit {
     $(document).ready(() => {
       this.SocketService.on('mensajito',function (msg){
         console.log(msg);
-        $('#messages').append($('<li>').text(msg));
+        $('#messages').append($('<div style="background: rgba(255, 255, 255, 0.2);padding: 1em 0;height: auto;width: 25%;border-radius: 10px;margin: 2em 1em;word-wrap: break-word;hyphens: auto;"><p style="padding:20px; "></div>').text(msg));
         window.scrollTo(0, document.body.scrollHeight);
       });
      });

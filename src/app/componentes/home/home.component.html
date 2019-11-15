@@ -1,10 +1,15 @@
 <!doctype html>
 <html>  
     <head>
+
     </head>
-    <body>
+    <body >
+        <div style="height: 100vh;"> 
+        <!--ul id="messages"></ul-->
+        <div id="messages" style="background-color: rgb(0,0,0,0);">
+        </div>
         
-        <ul id="messages"></ul>
+    </div>
             <form [formGroup]="FormularioChat" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                 <input type="text" formControlName="MensajePrueba" class="form-control" id="MensajeID" autocomplete="off" />
